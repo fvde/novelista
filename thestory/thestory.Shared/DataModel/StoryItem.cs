@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Newtonsoft.Json;
 
-namespace thestory
+namespace thestory.DataModel
 {
     public class StoryItem
     {
@@ -12,13 +12,19 @@ namespace thestory
         [JsonProperty(PropertyName = "text")]
         public string Text { get; set; }
 
-        [JsonProperty(PropertyName = "choice")]
-        public string Choice { get; set; }
+        [JsonProperty(PropertyName = "isroot")]
+        public bool IsRoot { get; set; }
 
         [JsonProperty(PropertyName = "language")]
         public string Language { get; set; }
 
         [JsonProperty(PropertyName = "popularity")]
         public int Popularity { get; set; }
+
+        [JsonProperty(PropertyName = "choice")]
+        public string Choice { get; set; }
+
+        [JsonIgnore]
+        public List<Choice> Choices { get; set; }
     }
 }

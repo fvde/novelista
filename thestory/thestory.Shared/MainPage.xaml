@@ -8,6 +8,24 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        
+        <StackPanel HorizontalAlignment="Center">
+            <TextBlock x:Name="Text" />
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="VoteUp" Content="Up"/>
+                <Button x:Name="VoteDown" Content="Down"/>
+            </StackPanel>
+            <ItemsControl 
+                x:Name="Choices">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Button Content="{Binding Choice}"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>   
+            </ItemsControl>
+            <TextBox x:Name="NewChoice" />
+            <Button x:Name="SubmitChoice" Content="Submit"/>
+        </StackPanel>
 
     </Grid>
 </Page>
