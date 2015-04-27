@@ -1,0 +1,7 @@
+syntax: glob
+packages
+*.suo
+thestory/thestory.Windows/bin
+thestory/thestory.Windows/obj
+thestory/thestory.WindowsPhone/bin
+thestory/thestory.WindowsPhone/obj
