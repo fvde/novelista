@@ -1,24 +1,27 @@
-﻿using System;
+﻿using Microsoft.WindowsAzure.MobileServices;
+using System;
 using System.Collections.Generic;
-using System.Text;
+using System.IO;
+using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
-using Microsoft.WindowsAzure.MobileServices;
-using Windows.UI.Popups;
+using thestory;
+using Windows.Foundation;
+using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Primitives;
+using Windows.UI.Xaml.Data;
+using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// To add offline sync support, add the NuGet package Microsoft.WindowsAzure.MobileServices.SQLiteStore
-// to your project. Then, uncomment the lines marked // offline sync
-// For more information, see: http://aka.ms/addofflinesync
-using Microsoft.WindowsAzure.MobileServices.SQLiteStore;  // offline sync
-using Microsoft.WindowsAzure.MobileServices.Sync;
-using System.Globalization;
-using Newtonsoft.Json.Linq;         // offline sync
+// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace thestory
 {
-    sealed partial class MainPage: Page
+
+    sealed partial class MainPage : Page
     {
         private MobileServiceCollection<StoryItem, StoryItem> items;
         private IMobileServiceTable<StoryItem> todoTable = App.MobileService.GetTable<StoryItem>();
@@ -90,9 +93,10 @@ namespace thestory
         {
             string localCulture = CultureInfo.CurrentUICulture.Name.Substring(0, 2);
 
-            var todoItem = new StoryItem { 
-                Text = TextInput.Text, 
-                Choice = "Choose this option", 
+            var todoItem = new StoryItem
+            {
+                Text = TextInput.Text,
+                Choice = "Choose this option",
                 Popularity = 0,
                 Language = localCulture
             };
@@ -160,6 +164,6 @@ namespace thestory
         //    await todoTable.PullAsync("todoItems", todoTable.CreateQuery());
         //}
 
-        #endregion 
+        #endregion
     }
 }
